@@ -32,6 +32,7 @@ NewsAsset::register($this);
 <div class="container-scroller">
     <div class="main-panel">
         <!-- partial:partials/_navbar.html -->
+
         <header id="header">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
