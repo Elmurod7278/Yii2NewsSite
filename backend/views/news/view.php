@@ -5,10 +5,12 @@ use common\models\NewsTeg;
 use common\models\Tegs;
 use common\widgets\Alert;
 use lesha724\youtubewidget\Youtube;
-use yii\grid\ActionColumn;use yii\grid\GridView;
+use yii\grid\ActionColumn;
+use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use yii\helpers\Url;use yii\widgets\ActiveForm;
+use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
@@ -23,9 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php
 
 if (Yii::$app->session->hasFlash('error')) {
-   Alert::begin();
+    Alert::begin();
     Yii::$app->session->getFlash('error');
-   Alert::end();
+    Alert::end();
 }
 ?>
 
@@ -110,7 +112,7 @@ if (Yii::$app->session->hasFlash('error')) {
 
 </div>
 
-<h3 class="text-bg-info text-primary" >Qo'shilgan teglar</h3>
+<h3 class="text-bg-info text-primary">Qo'shilgan teglar</h3>
 <?= GridView::widget([
     'dataProvider' => $dataProvider,
     'columns' => [
@@ -118,21 +120,32 @@ if (Yii::$app->session->hasFlash('error')) {
 
         'id',
         [
-            'attribute'=>'teg_id',
-            'value'=>function($model){
+            'attribute' => 'teg_id',
+            'value' => function ($model) {
                 return $model->teg->name_uz;
             },
-            'label'=>'Teg nomi'
+            'label' => 'Teg nomi'
         ],
         [
             'class' => ActionColumn::className(),
             'urlCreator' => function ($action, NewsTeg $model, $key, $index, $column) {
                 return Url::toRoute([$action, 'id' => $model->id]);
-            }
-        ],
+            },
+            'template' => '{delete}',
 
-    ],
-]); ?>
+            'buttons' => [
+
+                'delete' => function ($url, $model, $key) {
+
+                    return Html::a('Delete', ['news-teg/delete', 'id' => $model->id], ['class' => 'bg-red label']);
+
+                }
+            ],
+
+        ],
+    ]
+]);
+?>
 
 
 

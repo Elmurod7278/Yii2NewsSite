@@ -36,7 +36,7 @@
                                 <div class="position-relative">
                                     <div class="rotate-img">
                                         <img
-                                                src="<?= 'http://storagenews/news/' . $new->image ?>"
+                                                src="<?= '/uploads/storage/data/'. $new->image ?>"
                                                 alt="thumb"
                                                 class="img-fluid"
                                         />
@@ -51,7 +51,7 @@
                                     <span class="mr-2"><?= $new->created_at ?></span>
                                 </div>
                                 <p class="mb-0">
-                                    <?= $new['desc_' . Yii::$app->language] ?>
+                                    <?= substr( $new['desc_' . Yii::$app->language],0,150).'...'?>
                                 </p>
                             </div>
                         </div>
@@ -84,14 +84,17 @@
                                                 class="img-fluid"
                                         />
                                     </div>
-                                    <h2 class="mb-2 font-weight-600">
-                                        <?= $new['title_' . Yii::$app->language] ?>
-                                    </h2>
+                                    <a href="<?=\yii\helpers\Url::to(['site1/news-view','id'=>$new->id])?>" class="mb-2 font-weight-600">
+                                        <?= substr( $new['title_' . Yii::$app->language],0,70).'...'?>
+
+                                    </a>
                                     <div class="fs-13 mb-2">
+                                        <br>
                                         <span class="mr-2"><?=$new->created_at?> </span>
                                     </div>
                                     <p class="mb-0">
-                                        <?= $new['desc_' . Yii::$app->language] ?>
+                                        <?= substr( $new['desc_' . Yii::$app->language],0,150).'...'?>
+
                                     </p>
                                 </div>
                             </div>
