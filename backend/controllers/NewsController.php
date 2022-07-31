@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\NewsTegSearch;
 use common\models\News;
 use backend\models\NewsSearch;
 use common\models\NewsTeg;
@@ -60,6 +61,9 @@ class NewsController extends Controller
      */
     public function actionView($id)
     {
+        $searchModel = new NewsTegSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
         $tegModel = new NewsTeg();
         $tegModel->news_id = $id;
 
@@ -75,7 +79,8 @@ class NewsController extends Controller
 
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'tegModel' => $tegModel
+            'tegModel' => $tegModel,
+            'dataProvider'=>$dataProvider
         ]);
     }
 
@@ -153,18 +158,17 @@ class NewsController extends Controller
 
     public function actionRecommend($id)
     {
+
         $recommend = new Recommendations();
         $recommend->news_id = $id;
-        $recommend->save();
-        return $this->redirect(['index']);
+        if(!Recommendations::findOne(['news_id'=>$recommend->news_id])){
+            $recommend->save();
+        }else{
+            Yii::$app->session->setFlash('error', 'Qo\'shilgan');
+            return $this->redirect(['view', 'id' => $id]);
+        }
+
+        return $this->redirect(['view','id'=>$id]);
     }
 
-    public function actionAdd($news_id, $teg_id)
-    {
-        $newstag = new NewsTeg();
-        $newstag->news_id = $news_id;
-        $newstag->teg_id = $teg_id;
-        $newstag->save();
-
-    }
 }

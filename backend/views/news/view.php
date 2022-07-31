@@ -1,11 +1,14 @@
 <?php
 
 use common\models\News;
+use common\models\NewsTeg;
 use common\models\Tegs;
+use common\widgets\Alert;
 use lesha724\youtubewidget\Youtube;
+use yii\grid\ActionColumn;use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\helpers\Url;use yii\widgets\ActiveForm;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
@@ -18,13 +21,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?php
-foreach (common\models\Recommendations::find()->each() as $test1) {
-//    \yii\helpers\VarDumper::dump($test1->news_id,12,true);die();
-    echo $test1->news_id . '<br>';
-}
 
 if (Yii::$app->session->hasFlash('error')) {
-    \yii\helpers\VarDumper::dump(Yii::$app->session->getFlash('error'));
+   Alert::begin();
+    Yii::$app->session->getFlash('error');
+   Alert::end();
 }
 ?>
 
@@ -43,7 +44,7 @@ if (Yii::$app->session->hasFlash('error')) {
         ])
         ?>
         <?= Html::beginForm(['recommend', 'id' => $model->id], 'POST'); ?>
-        <?= Html::button(Yii::t('app', 'Recommendation'), ['class' => 'btn btn-primary', 'type' => 'submit']); ?>
+        <?= Html::button(Yii::t('app', 'Tanlovga qo\'shish'), ['class' => 'btn btn-primary', 'type' => 'submit']); ?>
         <?= Html::endForm() ?>
     </p>
 
@@ -108,15 +109,46 @@ if (Yii::$app->session->hasFlash('error')) {
     ]) ?>
 
 </div>
+
+<h3 class="text-bg-info text-primary" >Qo'shilgan teglar</h3>
+<?= GridView::widget([
+    'dataProvider' => $dataProvider,
+    'columns' => [
+        ['class' => 'yii\grid\SerialColumn'],
+
+        'id',
+        [
+            'attribute'=>'teg_id',
+            'value'=>function($model){
+                return $model->teg->name_uz;
+            },
+            'label'=>'Teg nomi'
+        ],
+        [
+            'class' => ActionColumn::className(),
+            'urlCreator' => function ($action, NewsTeg $model, $key, $index, $column) {
+                return Url::toRoute([$action, 'id' => $model->id]);
+            }
+        ],
+
+    ],
+]); ?>
+
+
+
+
+
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+<div class="row">
+    <div class="col-8">
+        <?= $form->field($tegModel, 'teg_id')->dropDownList(ArrayHelper::map(Tegs::find()->all(), 'id', 'name_uz')) ?>
+    </div>
 
-<div class="col-4">
-    <?= $form->field($tegModel, 'teg_id')->dropDownList(ArrayHelper::map(Tegs::find()->all(), 'id', 'name_uz')) ?>
+    <div class="col-4">
+        <?= Html::submitButton(Yii::t('app', '+'), ['class' => 'btn btn-success']) ?>
+    </div>
 </div>
 
-<div class="form-group">
-    <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
-</div>
 
 <?php ActiveForm::end(); ?>
 
