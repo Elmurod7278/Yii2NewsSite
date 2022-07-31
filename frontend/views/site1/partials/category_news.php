@@ -11,9 +11,7 @@ $category_name=\common\models\Categories::find()->where(['id'=>$model->id])->one
                     <div class="row">
                         <div class="col-sm-12">
                             <h1 class="font-weight-600 mb-4" style="color: blue">
-                                <?php
-                                echo $category_name->name_en;
-                                ?>
+                                <?=  $category_name['name_' . Yii::$app->language]?>
                             </h1>
                         </div>
                     </div>
@@ -35,13 +33,14 @@ $category_name=\common\models\Categories::find()->where(['id'=>$model->id])->one
                                     </div>
                                     <div class="col-sm-8 grid-margin">
                                         <a href="<?=\yii\helpers\Url::to(['site1/news-view','id'=>$category_new->id]) ?>" class="font-weight-600 mb-2" style="text-underline: none">
-                                            <?= $category_new->title_uz ?>
+                                            <?= substr( $category_new['title_' . Yii::$app->language],0,70).'...'?>
+
                                         </a>
                                         <p class="fs-13 text-muted mb-0">
                                             <span class="mr-2">  <?= $category_new->created_at ?></span>
                                         </p>
                                         <p class="fs-15">
-                                            <?= $category_new->desc_uz ?>
+                                            <?= substr( $category_new['title_' . Yii::$app->language],0,150).'...'?>
                                         </p>
                                     </div>
                                 </div>

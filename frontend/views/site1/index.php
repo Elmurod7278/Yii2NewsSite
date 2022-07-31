@@ -50,9 +50,6 @@
                                 <div class="fs-13 mb-2">
                                     <span class="mr-2"><?= $new->created_at ?></span>
                                 </div>
-                                <p class="mb-0">
-                                    <?= substr( $new['desc_' . Yii::$app->language],0,150).'...'?>
-                                </p>
                             </div>
                         </div>
                         <?php
@@ -92,10 +89,6 @@
                                         <br>
                                         <span class="mr-2"><?=$new->created_at?> </span>
                                     </div>
-                                    <p class="mb-0">
-                                        <?= substr( $new['desc_' . Yii::$app->language],0,150).'...'?>
-
-                                    </p>
                                 </div>
                             </div>
 

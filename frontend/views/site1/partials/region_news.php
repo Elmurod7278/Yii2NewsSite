@@ -13,9 +13,7 @@ $region_names = \common\models\Regions::find()->where(['id' => $model->id])->one
                     <div class="row">
                         <div class="col-sm-12">
                             <h1 class="font-weight-600 mb-4" style="color: blue">
-                                <?php
-                                echo $region_names->name_en;
-                                ?>
+                                <?= $region_names['name_' . Yii::$app->language]?>
                             </h1>
                         </div>
                     </div>
@@ -38,13 +36,14 @@ $region_names = \common\models\Regions::find()->where(['id' => $model->id])->one
                                     <div class="col-sm-8 grid-margin">
                                         <a href="<?= \yii\helpers\Url::to(['site1/news-view', 'id' => $region_new->id]) ?>"
                                            class="font-weight-600 mb-2">
-                                            <?= $region_new->title_uz ?>
+                                            <?= substr( $region_new['title_' . Yii::$app->language],0,70).'...'?>
                                         </a>
                                         <p class="fs-13 text-muted mb-0">
                                             <span class="mr-2">  <?= $region_new->created_at ?></span>
                                         </p>
                                         <p class="fs-15">
-                                            <?= $region_new->desc_uz ?>
+                                            <?= substr( $region_new['desc_' . Yii::$app->language],0,150).'...'?>
+
                                         </p>
                                     </div>
                                 </div>
