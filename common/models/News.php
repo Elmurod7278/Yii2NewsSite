@@ -61,6 +61,7 @@ class News extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['title_uz', 'title_en', 'body_uz', 'body_en','image','desc_uz', 'desc_en'],'required'],
             [['desc_uz', 'desc_en'], 'string'],
             [['views_count', 'category_id', 'region_id'], 'default', 'value' => null],
             [['views_count', 'category_id', 'region_id'], 'integer'],
@@ -137,7 +138,8 @@ class News extends \yii\db\ActiveRecord
         return $this->hasOne(Regions::className(), ['id' => 'region_id']);
     }
 
-    public function upload_file()
+    public function
+    upload_file()
     {
         $image = UploadedFile::getInstance($this, 'image');
         $temp_path = Yii::getAlias('@storage/data/') . $image->name;
