@@ -22,16 +22,19 @@ return [
             'class' => 'kartik\grid\Module',
             // other module settings
         ],
-        'gii'=>[
-            'class'=>'yii\gii\Module',
-            'allowedIPs'=>['*']
-        ]
+        'gii' => [
+            'class' => 'yii\gii\Module',
+            'allowedIPs' => ['*']
+        ],
+
+
     ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
 
         ],
+
         'pdf' => [
             'class' => Pdf::classname(),
             'format' => Pdf::FORMAT_A4,
@@ -85,5 +88,6 @@ return [
         ],
 
     ],
+
     'params' => $params,
 ];
