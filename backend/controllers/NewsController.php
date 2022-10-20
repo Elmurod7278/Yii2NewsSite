@@ -24,32 +24,6 @@ class NewsController extends Controller
     /**
      * @inheritDoc
      */
-    public function behaviors()
-    {
-
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['index','view','create'],
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['index'],
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'allow' => true,
-                        'actions' => ['view','index'],
-                        'roles' => ['@'],
-
-                    ],
-
-                ],
-
-            ],
-        ];
-    }
-
     /**
      * Lists all News models.
      *

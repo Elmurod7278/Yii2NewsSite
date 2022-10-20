@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c70f065e2cd9656b0eb00e78c5e4866b",
+    "content-hash": "68380b539985beaac4487efc520ce864",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -596,57 +596,6 @@
                 "source": "https://github.com/hail812/yii2-adminlte3/tree/v1.1.8"
             },
             "time": "2022-04-16T06:46:23+00:00"
-        },
-        {
-            "name": "hscstudio/yii2-export",
-            "version": "v1.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hscstudio/yii2-export.git",
-                "reference": "1fd85e2e3672a411109f51a32235f4280c650d26"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hscstudio/yii2-export/zipball/1fd85e2e3672a411109f51a32235f4280c650d26",
-                "reference": "1fd85e2e3672a411109f51a32235f4280c650d26",
-                "shasum": ""
-            },
-            "require": {
-                "phpoffice/phpexcel": "1.8.*",
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "hscstudio\\export\\": ""
-                },
-                "files": [
-                    "libraries/tbs/tbs_class.php",
-                    "libraries/tbs/plugins/tbs_plugin_opentbs.php",
-                    "libraries/mpdf/mpdf.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Hafid Mukhlasin",
-                    "email": "hafidmukhlasin@gmail.com"
-                }
-            ],
-            "description": "Excel, Word, PDF",
-            "keywords": [
-                "extension",
-                "yii2"
-            ],
-            "support": {
-                "issues": "https://github.com/hscstudio/yii2-export/issues",
-                "source": "https://github.com/hscstudio/yii2-export/tree/master"
-            },
-            "abandoned": true,
-            "time": "2016-02-13T08:57:40+00:00"
         },
         {
             "name": "kartik-v/yii2-dialog",
@@ -1434,16 +1383,16 @@
         },
         {
             "name": "mdmsoft/yii2-admin",
-            "version": "dev-master",
+            "version": "2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mdmsoft/yii2-admin.git",
-                "reference": "e042ccb87bbc8add5bdefce414d3e62ef9f982b0"
+                "reference": "10e526fbcf6350ed4cc9ba6298f887d611685367"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mdmsoft/yii2-admin/zipball/e042ccb87bbc8add5bdefce414d3e62ef9f982b0",
-                "reference": "e042ccb87bbc8add5bdefce414d3e62ef9f982b0",
+                "url": "https://api.github.com/repos/mdmsoft/yii2-admin/zipball/10e526fbcf6350ed4cc9ba6298f887d611685367",
+                "reference": "10e526fbcf6350ed4cc9ba6298f887d611685367",
                 "shasum": ""
             },
             "require": {
@@ -1455,7 +1404,6 @@
             "suggest": {
                 "yiisoft/yii2-bootstrap": "Used when using layout 'left-menu', 'right-menu' or 'top-menu'"
             },
-            "default-branch": true,
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
@@ -1493,7 +1441,7 @@
                 "issues": "https://github.com/mdmsoft/yii2-admin/issues",
                 "source": "https://github.com/mdmsoft/yii2-admin"
             },
-            "time": "2022-09-20T03:36:30+00:00"
+            "time": "2020-12-31T06:48:57+00:00"
         },
         {
             "name": "mikehaertl/php-tmpfile",
@@ -7205,8 +7153,7 @@
         "yiisoft/yii2-bootstrap5": 20,
         "yiisoft/yii2-bootstrap": 20,
         "kartik-v/yii2-export": 20,
-        "kartik-v/yii2-mpdf": 20,
-        "mdmsoft/yii2-admin": 20
+        "kartik-v/yii2-mpdf": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
