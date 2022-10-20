@@ -6,6 +6,4 @@ return [
     'Lang' => 'Lang',
     'Editor\'s Choice' => 'Editor\'s Choice',
     'Category'=>'Category',
-
-
 ];

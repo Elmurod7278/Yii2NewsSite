@@ -16,7 +16,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\News */
 
-$this->title = $model->title_en;
+$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'News'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -35,6 +35,9 @@ if (Yii::$app->session->hasFlash('error')) {
 <div class="news-view">
 
 
+
+
+
     <p>
         <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
@@ -45,11 +48,12 @@ if (Yii::$app->session->hasFlash('error')) {
             ],
         ])
         ?>
+        <?= Html::a(Yii::t('app', 'Export Pdf'), ['view-pdf','id' => $model->id], ['class' => 'btn btn-success']) ?>
         <?= Html::beginForm(['recommend', 'id' => $model->id], 'POST'); ?>
         <?= Html::button(Yii::t('app', 'Tanlovga qo\'shish'), ['class' => 'btn btn-primary', 'type' => 'submit']); ?>
         <?= Html::endForm() ?>
-    </p>
 
+    </p>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -64,7 +68,7 @@ if (Yii::$app->session->hasFlash('error')) {
             [
                 'attribute' => 'image',
                 'value' => function ($model) {
-                    return Html::a(Yii::t('app', $model->image), ['/uploads/storage/data/' . $model->image]);
+                    return Html::img('/uploads/storage/data/' . $model->image,['width'=>300]);
                 },
                 'format' => 'raw'
             ],
@@ -113,7 +117,8 @@ if (Yii::$app->session->hasFlash('error')) {
 </div>
 
 <h3 class="text-bg-info text-primary">Qo'shilgan teglar</h3>
-<?= GridView::widget([
+<?= 
+GridView::widget([
     'dataProvider' => $dataProvider,
     'columns' => [
         ['class' => 'yii\grid\SerialColumn'],
@@ -164,6 +169,10 @@ if (Yii::$app->session->hasFlash('error')) {
 
 
 <?php ActiveForm::end(); ?>
+
+
+
+
 
 
 

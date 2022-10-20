@@ -14,7 +14,7 @@
                 <img src="<?= $assetDir ?>/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block"><?= Yii::$app->user->identity->username ?></a>
             </div>
         </div>
 
@@ -41,6 +41,7 @@
                     ['label' => 'News', 'icon' => 'fa-solid fa-envelope-open', 'url' => ['/news']],
                     ['label' => 'Advertise', 'icon' => 'fa-solid fa-bookmark', 'url' => ['/advertise']],
                     ['label' => 'Teg', 'icon' => 'fa-solid fa-highlighter', 'url' => ['/tegs']],
+                    ['label' => 'Import data', 'icon' => 'fa-solid fa-highlighter', 'url' => ['news/import']],
                 ],
             ]);
             ?>

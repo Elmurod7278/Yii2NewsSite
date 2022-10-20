@@ -21,11 +21,16 @@
         "hail812/yii2-adminlte3": "~1.1",
         "kartik-v/yii2-widget-select2": "dev-master",
         "yiisoft/yii2-bootstrap5": "@dev",
-        "yiisoft/yii2-bootstrap4": "@dev",
         "yiisoft/yii2-bootstrap": "@dev",
         "lesha724/yii2-youtube-widget": "*",
         "skeeks/yii2-multi-language": "^1.0.0",
-        "codemix/yii2-localeurls": "^1.8"
+        "codemix/yii2-localeurls": "^1.8",
+        "codemix/yii2-excelexport": "^2.7",
+        "kartik-v/yii2-export": "@dev",
+        "hscstudio/yii2-export": "*",
+        "kartik-v/yii2-mpdf": "dev-master",
+        "mpdf/mpdf": "^8.1",
+        "mdmsoft/yii2-admin": "2.x-dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
@@ -36,7 +41,9 @@
         "codeception/module-yii2": "^1.0",
         "codeception/module-filesystem": "^1.0",
         "codeception/verify": "~0.5.0 || ~1.1.0",
-        "symfony/browser-kit": ">=2.7 <=4.2.4"
+        "symfony/browser-kit": ">=2.7 <=4.2.4",
+        "phpoffice/phpexcel": "*"
+
     },
     "config": {
         "process-timeout": 1800,

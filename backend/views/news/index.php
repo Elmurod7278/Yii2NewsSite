@@ -5,6 +5,8 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\widgets\ActiveForm;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\NewsSearch */
@@ -18,10 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a(Yii::t('app', 'Create News'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Export Excel'), ['export-excel2'], ['class' => 'btn btn-primary']) ?>
+        <?php
 
+        ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

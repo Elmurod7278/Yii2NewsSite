@@ -1,6 +1,7 @@
 <?php
 
 
+use kartik\mpdf\Pdf;
 
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
@@ -11,14 +12,16 @@ $params = array_merge(
 
 return [
     'language' => 'uz',
-
-    // set source language to be English
     'sourceLanguage' => 'en-US',
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [
+        'gridview' => [
+            'class' => 'kartik\grid\Module',
+            // other module settings
+        ],
         'gii'=>[
             'class'=>'yii\gii\Module',
             'allowedIPs'=>['*']
@@ -28,6 +31,13 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
 
+        ],
+        'pdf' => [
+            'class' => Pdf::classname(),
+            'format' => Pdf::FORMAT_A4,
+            'orientation' => Pdf::ORIENT_PORTRAIT,
+            'destination' => Pdf::DEST_BROWSER,
+            // refer settings section for all configuration options
         ],
         'i18n' => [
             'translations' => [

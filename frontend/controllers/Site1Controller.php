@@ -6,6 +6,7 @@ use common\models\Categories;
 use common\models\News;
 use common\models\NewsTeg;
 use common\models\Regions;
+use Yii;
 use yii\web\Controller;
 
 

@@ -43,6 +43,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-sm-8">
                                 <a href="<?=\yii\helpers\Url::to(['site1/news-view','id'=>$new->id])?>" class="mb-2 font-weight-600" style="font-size: 20px">
                                     <?= $new['title_'.Yii::$app->language]  ?>
